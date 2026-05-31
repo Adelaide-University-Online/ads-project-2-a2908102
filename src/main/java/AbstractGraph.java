@@ -9,4 +9,13 @@ public abstract class AbstractGraph implements Graph {
         this.num_vertices = num_vertices;
         this.is_directed = is_directed;
     }
+
+    public int getNum_vertices() {
+        return num_vertices;
+    }
+
+    public boolean getIs_directed() {
+        return is_directed;
+    }
+
 }
