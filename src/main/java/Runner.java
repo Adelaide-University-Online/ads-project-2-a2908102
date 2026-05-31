@@ -1,4 +1,5 @@
-import java.io.File;
+import java.io.*;
+import java.util.*;
 
 /**
 * File: filename.java
@@ -13,6 +14,7 @@ import java.io.File;
 public class Runner {
     private File file;
     private Integer num_courses;
+    private Graph graph;
 
     Runner(File file, Integer num_courses) {
         this.file = file;
