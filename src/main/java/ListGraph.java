@@ -27,5 +27,21 @@ public class ListGraph extends AbstractGraph {
         return edges[source].iterator();
     }
 
+    public Edge get_edge(int source, int destination) {
+        Edge target = new Edge(source, destination);
+        for (Edge edge: edges[source]) {
+            if (edge.equal_edges(target))
+                return edge;
+        }
+        return null;
+    }
+
+    public int getNum_vertices() {
+        return super.getNum_vertices();
+    }
+
+    public boolean getIs_directed() {
+        return super.getIs_directed();
+    }
 
 }
