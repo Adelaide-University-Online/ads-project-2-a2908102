@@ -1,10 +1,10 @@
 import java.util.*;
 
 public interface Graph {
-    int getNumVertices();
-    boolean isDirected();
+    int getNum_vertices();
+    boolean getIs_directed();
     void insert_edge(Edge edge);
     boolean is_edge(int source, int destination);
-    Edge getEdge(int source, int destination);
-    Iterator<Edge> edge_iterator(int soorce);
+    Edge get_edge(int source, int destination);
+    Iterator<Edge> edge_iterator(int source);
 }
