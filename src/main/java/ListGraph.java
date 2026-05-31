@@ -11,4 +11,21 @@ public class ListGraph extends AbstractGraph {
         }
     }
 
+    public boolean is_edge(int source, int dest) {
+        return edges[source].contains(new Edge(source,dest));
+    }
+
+    public void insert_edge(Edge edge) {
+        edges[edge.getSource_vertex()].add(edge);
+        if(!this.getIs_directed()) {
+            edges[edge.getDest_vertex()].add(new Edge(edge.getDest_vertex(),
+                    edge.getSource_vertex()));
+        }
+    }
+
+    public Iterator<Edge> edge_iterator(int source) {
+        return edges[source].iterator();
+    }
+
+
 }
