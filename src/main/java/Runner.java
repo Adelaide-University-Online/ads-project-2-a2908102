@@ -1,3 +1,5 @@
+import java.io.File;
+
 /**
 * File: filename.java
 * Description: A brief description of this Java module.
@@ -9,12 +11,18 @@
 *    the University's Academic Integrity Policy.
 **/
 public class Runner {
+    private File file;
+    private Integer num_courses;
+
+    Runner(File file, Integer num_courses) {
+        this.file = file;
+        this.num_courses = num_courses;
+    }
     
     public static void main(String[] args) {
         System.out.println("Welcome to ADS Assignment Starter!");
         System.out.println("This is a basic Java project template.");
         System.out.println("You can modify this file to implement your assignment requirements.");
-        
     }
     
 }
