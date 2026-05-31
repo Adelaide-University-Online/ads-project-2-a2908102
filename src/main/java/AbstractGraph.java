@@ -18,4 +18,15 @@ public abstract class AbstractGraph implements Graph {
         return is_directed;
     }
 
+    public void edges_from_file(Scanner scanner) {
+    }
+
+    public static Graph createGraph(Scanner scanner, boolean is_directed) {
+        int num_vertices = scanner.nextInt();
+        AbstractGraph returnValue;
+        returnValue = new ListGraph(num_vertices, is_directed);
+        returnValue.edges_from_file(scanner);
+        return returnValue;
+
+    }
 }
