@@ -36,7 +36,7 @@ public class Edge {
     }
 
     public String toString() {
-        return super.toString();
+        return Integer.toString(source_vertex) + Integer.toString(dest_vertex);
     }
 }
 
