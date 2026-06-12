@@ -62,6 +62,15 @@ public class Runner {
         }
     }
 
+    public static void main(String[] args) {
+        File XBDA = new File("/Users/ameliabond/Desktop/XBDA.txt");
+        Runner runner = new Runner(XBDA, 2);
+        System.out.println("XBDA Study Plan");
+        runner.degree_planner();
 
-    
+        File XBIT = new File("/Users/ameliabond/Desktop/XBIT.txt");
+        Runner runner2 = new Runner(XBIT, 4);
+        System.out.println("XBIT Study Plan");
+        runner2.degree_planner();
+    }
 }
