@@ -1,9 +1,11 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
-import java.io.*;
 
 public abstract class AbstractGraph implements Graph {
     private int num_vertices;
     private boolean is_directed;
+    private static String[] vertices;
 
     public AbstractGraph(int num_vertices, boolean is_directed) {
         this.num_vertices = num_vertices;
@@ -18,15 +20,37 @@ public abstract class AbstractGraph implements Graph {
         return is_directed;
     }
 
-    public void edges_from_file(Scanner scanner) {
+    public String[] getVertices() {
+        return vertices;
+    }
+
+    public void edges_from_file(Scanner scanner, List<String> list) {
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            String[] arr_line = line.split(", ");
+            if (arr_line.length == 1) {
+                scanner.nextLine();
+            } else {
+                String course = arr_line[0];
+                int course_num = list.indexOf(course);
+                for (int i = 1; i < arr_line.length; i++) {
+                    String pre_rec = arr_line[i];
+                    int pre_rec_num = list.indexOf(pre_rec);
+                    Edge edge = new Edge(pre_rec_num, course_num);
+                }
+            }
+        }
+        scanner.close();
     }
 
     public static Graph createGraph(Scanner scanner, boolean is_directed) {
-        int num_vertices = scanner.nextInt();
+        String first_line = scanner.nextLine();
+        String[] arr_vertices = first_line.split(", ");
+        vertices = arr_vertices;
+        List<String> list = Arrays.asList(vertices);
         AbstractGraph returnValue;
-        returnValue = new ListGraph(num_vertices, is_directed);
-        returnValue.edges_from_file(scanner);
+        returnValue = new ListGraph(list.size(), is_directed);
+        returnValue.edges_from_file(scanner, list);
         return returnValue;
-
     }
 }
