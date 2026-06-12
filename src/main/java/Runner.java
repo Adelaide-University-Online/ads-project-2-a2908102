@@ -44,6 +44,24 @@ public class Runner {
         this.course_order = course_order;
     }
 
+    public void degree_planner() {
+        sort_courses();
+        Queue<String> order_course = new PriorityQueue<>();
+        for (int i = 0; i < course_order.length; i++) {
+            int course_num = course_order[i];
+            String course_code = courses[course_num];
+            order_course.add(course_code);
+        }
+        double num = Double.valueOf(courses.length)/Double.valueOf(num_courses);
+        int num_periods = (int) Math.ceil(num);
+        for (int j = 0; j < num_periods; j++){
+            System.out.println("Study Period " + (j+1));
+            for (int i = 0; i < num_courses; i++) {
+                System.out.println(order_course.poll());
+            }
+        }
+    }
+
 
     
 }
