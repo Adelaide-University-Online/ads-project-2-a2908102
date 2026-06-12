@@ -64,6 +64,11 @@ public class Runner {
             String course_code = courses[course_num];
             order_course.add(course_code);
         }
+        System.out.println("Courses to be completed:");
+        for (int i = 0; i < courses.length; i++) {
+            System.out.print(courses[i] + " ");
+        }
+        System.out.println("");
         double num = Double.valueOf(courses.length)/Double.valueOf(num_courses);
         int num_periods = (int) Math.ceil(num);
         for (int j = 0; j < num_periods; j++){
