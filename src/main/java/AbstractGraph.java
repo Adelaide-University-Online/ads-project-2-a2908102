@@ -1,5 +1,15 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+/**
+ * File: AbstractGraph.java
+ * Description: This contains the AbstractGraph abstract class which creates
+ * the graph from a file.
+ * Author: Amelia Bond
+ * Student ID: 2908102
+ * Email ID: a2908102
+ * AI Tool Used: N
+ * This is my own work as defined by
+ *    the University's Academic Integrity Policy.
+ **/
+
 import java.util.*;
 
 public abstract class AbstractGraph implements Graph {

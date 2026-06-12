@@ -1,3 +1,14 @@
+/**
+ * File: DepthFirstSearch.java
+ * Description: Contains the DepthFirstSearch class which performs a graph searh.
+ * Author: Amelia Bond
+ * Student ID: 2908102
+ * Email ID: a2908102
+ * AI Tool Used: N
+ * This is my own work as defined by
+ *    the University's Academic Integrity Policy.
+ **/
+
 import java.util.Iterator;
 
 public class DepthFirstSearch {
