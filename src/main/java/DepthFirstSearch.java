@@ -40,5 +40,17 @@ public class DepthFirstSearch {
         finish_order[finish_index++] = current;
     }
 
+    public int[] getDiscovery_order() {
+        return discovery_order;
+    }
+
+    public int[] getFinish_order() {
+        return finish_order;
+    }
+
+    public int[] getParent() {
+        return parent;
+    }
+
 
 }
