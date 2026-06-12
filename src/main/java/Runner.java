@@ -22,5 +22,28 @@ public class Runner {
         this.num_courses = num_courses;
     }
 
+
+    private void sort_courses() {
+        Graph graph = null;
+        int num_vertices = 0;
+        try {
+            Scanner scan = new Scanner(file);
+            graph = AbstractGraph.createGraph(scan,true);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        this.courses = graph.getVertices();
+        DepthFirstSearch dfs = new DepthFirstSearch(graph);
+        int[] finish_order = dfs.getFinish_order();
+        int n = finish_order.length;
+        int[] course_order = new int[n];
+        for (int i = 0; i < finish_order.length; i++) {
+            course_order[n-1] = finish_order[i];
+            n = n - 1;
+        }
+        this.course_order = course_order;
+    }
+
+
     
 }
