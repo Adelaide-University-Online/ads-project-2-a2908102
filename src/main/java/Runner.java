@@ -13,17 +13,26 @@ import java.io.*;
 import java.util.*;
 
 public class Runner {
+    /** File with degree structure */
     private File file;
+    /** Number of courses to study concurrently */
     private int num_courses;
+    /** Array with course codes */
     private String[] courses;
+    /** Array with the order the courses should be studied */
     private int[] course_order;
 
+    /** Constructor to create an instance
+     * @param file file with course structure
+     * @param num_courses number of courses studied concurrently
+     */
     Runner(File file, Integer num_courses) {
         this.file = file;
         this.num_courses = num_courses;
     }
 
-
+    /** Creates graph from file, runs a depth first search
+     * and reverses the finish order */
     private void sort_courses() {
         Graph graph = null;
         int num_vertices = 0;
@@ -45,6 +54,8 @@ public class Runner {
         this.course_order = course_order;
     }
 
+    /** Runs the sort courses method and converts the ordered numbers to a queue
+     * before displaying study plan */
     public void degree_planner() {
         sort_courses();
         Queue<String> order_course = new PriorityQueue<>();
@@ -63,6 +74,7 @@ public class Runner {
         }
     }
 
+    /** Main method to run examples*/
     public static void main(String[] args) {
         File XBDA = new File("/Users/ameliabond/Desktop/XBDA.txt");
         Runner runner = new Runner(XBDA, 2);

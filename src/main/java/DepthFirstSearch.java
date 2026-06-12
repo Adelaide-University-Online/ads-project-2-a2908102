@@ -12,14 +12,24 @@
 import java.util.Iterator;
 
 public class DepthFirstSearch {
+    /** Graph the search is being performed on */
     private Graph graph;
-    private int discovery_index = 0;
+    /** The index of the discovery order */
+    private int discovery = 0;
+    /** Array of vertices in the order they are discovered */
     private int[] discovery_order;
-    private int finish_index = 0;
+    /** The index of the finish order */
+    private int finish = 0;
+    /** Array of vertices in the order they are finished */
     private int[] finish_order;
+    /** Array of parents in the graph */
     private int[] parent;
+    /** Array to indicate if a vertex has been visited */
     private boolean[] visited;
 
+    /** Constructor to create arrays for graph and run depth first search
+     * @param graph graph being searched
+     */
     public DepthFirstSearch(Graph graph) {
         this.graph = graph;
         int n = graph.getNum_vertices();
@@ -37,9 +47,13 @@ public class DepthFirstSearch {
         }
     }
 
+    /** Search through the graph from the current vertex
+     * @param current vertex currently being visited
+     */
     public void depthFirstSearch(int current) {
         visited[current] = true;
-        discovery_order[discovery_index++] = current;
+        discovery_order[discovery] = current;
+        discovery++;
         Iterator<Edge> itr = graph.edge_iterator(current);
         while (itr.hasNext()) {
             int neighbour = itr.next().getDest_vertex();
@@ -48,20 +62,18 @@ public class DepthFirstSearch {
                 depthFirstSearch(neighbour);
             }
         }
-        finish_order[finish_index++] = current;
+        finish_order[finish] = current;
+        finish++;
     }
 
-    public int[] getDiscovery_order() {
-        return discovery_order;
-    }
-
+    /** Returns the finish order
+     * @return finish order
+     */
     public int[] getFinish_order() {
         return finish_order;
     }
-
-    public int[] getParent() {
-        return parent;
-    }
-
-
 }
+/** This code was inspired by:
+ * Koffman, E. B. & Wolfgang, P. A. T. (2015). Data structures : Abstraction and Design using Java, 3rd Edition. Wiley.
+ * Available at: https://ebookcentral.proquest.com/lib/adelaideuni/reader.action?c=UERG&docID=5106355&ppg=541
+ */

@@ -12,8 +12,13 @@
 import java.util.*;
 
 public class ListGraph extends AbstractGraph {
+    /** List to store the vertices */
     private List<Edge>[] edges;
 
+    /** Constructor to create linked lists from the edges
+     * @param num_vertices number of vertices in graph
+     * @param is_directed if the graph is directed
+     */
     public ListGraph(int num_vertices, boolean is_directed) {
         super(num_vertices,is_directed);
         edges = new List[num_vertices];
@@ -22,10 +27,9 @@ public class ListGraph extends AbstractGraph {
         }
     }
 
-    public boolean is_edge(int source, int dest) {
-        return edges[source].contains(new Edge(source,dest));
-    }
-
+    /** Insert edge into graph
+     * @param edge edge to insert
+     */
     public void insert_edge(Edge edge) {
         edges[edge.getSource_vertex()].add(edge);
         if(!this.getIs_directed()) {
@@ -34,10 +38,19 @@ public class ListGraph extends AbstractGraph {
         }
     }
 
+    /** Iterate through edges for a vertex
+     * @param source source vertex
+     * @return the edge iterator
+     */
     public Iterator<Edge> edge_iterator(int source) {
         return edges[source].iterator();
     }
 
+    /** Returns an edge
+     * @param source source vertex
+     * @param destination destination vertex
+     * @return edge if it exists otherwise null
+     */
     public Edge get_edge(int source, int destination) {
         Edge target = new Edge(source, destination);
         for (Edge edge: edges[source]) {
@@ -47,12 +60,21 @@ public class ListGraph extends AbstractGraph {
         return null;
     }
 
+    /** Returns the number of vertices
+     * @return number of vertices
+     */
     public int getNum_vertices() {
         return super.getNum_vertices();
     }
 
+    /** Returns if the graph is directed
+     * @return if graph is directed
+     */
     public boolean getIs_directed() {
         return super.getIs_directed();
     }
-
 }
+/** This code was inspired by:
+ * Koffman, E. B. & Wolfgang, P. A. T. (2015). Data structures : Abstraction and Design using Java, 3rd Edition. Wiley.
+ * Available at: https://ebookcentral.proquest.com/lib/adelaideuni/reader.action?c=UERG&docID=5106355&ppg=541
+ */

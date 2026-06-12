@@ -12,11 +12,29 @@
 import java.util.*;
 
 public interface Graph {
+    /** Returns the number of vertices in the graph
+     * @return number of vertices
+     */
     int getNum_vertices();
+
+    /** Returns if the graph is directed
+     * @return whether the graph is directed
+     */
     boolean getIs_directed();
+
+    /** Returns a string array of the vertices
+     * @return vertices
+     */
     String[] getVertices();
+
+    /** inserts an edge into the graph
+     * @param edge edge to insert
+     */
     void insert_edge(Edge edge);
-    boolean is_edge(int source, int destination);
-    Edge get_edge(int source, int destination);
+
+    /** Runs an iterator of edges of the source vertex
+     * @param source vertex
+     * @return the edge iterator
+     */
     Iterator<Edge> edge_iterator(int source);
 }
