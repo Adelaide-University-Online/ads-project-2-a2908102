@@ -26,4 +26,19 @@ public class DepthFirstSearch {
         }
     }
 
+    public void depthFirstSearch(int current) {
+        visited[current] = true;
+        discovery_order[discovery_index++] = current;
+        Iterator<Edge> itr = graph.edge_iterator(current);
+        while (itr.hasNext()) {
+            int neighbour = itr.next().getDest_vertex();
+            if (!visited[neighbour]) {
+                parent[neighbour] = current;
+                depthFirstSearch(neighbour);
+            }
+        }
+        finish_order[finish_index++] = current;
+    }
+
+
 }
